@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="A browser-based IT help desk request system created by Sara Salome."
+  >
+  <title>IT Help Desk Request System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">TECHNICAL PROJECT</p>
+      <h1>IT Help Desk Request System</h1>
+      <p class="subtitle">
+        Submit, prioritize, track, and resolve simulated technical-support requests.
+      </p>
+    </div>
+
+    <a class="portfolio-link" href="../../index.html">Back to Portfolio</a>
+  </header>
+
+  <main>
+    <section class="dashboard" aria-label="Ticket summary">
+      <article class="summary-card">
+        <span id="total-count">0</span>
+        <p>Total Tickets</p>
+      </article>
+
+      <article class="summary-card">
+        <span id="open-count">0</span>
+        <p>Open</p>
+      </article>
+
+      <article class="summary-card">
+        <span id="progress-count">0</span>
+        <p>In Progress</p>
+      </article>
+
+      <article class="summary-card">
+        <span id="resolved-count">0</span>
+        <p>Resolved</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">CREATE REQUEST</p>
+        <h2>Submit a Support Ticket</h2>
+      </div>
+
+      <form id="ticket-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="requester">Requester Name</label>
+            <input
+              id="requester"
+              name="requester"
+              type="text"
+              placeholder="Enter your name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department" name="department" required>
+              <option value="">Select a department</option>
+              <option value="Operations">Operations</option>
+              <option value="Finance">Finance</option>
+              <option value="Human Resources">Human Resources</option>
+              <option value="Sales">Sales</option>
+              <option value="Information Technology">
+                Information Technology
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Issue Category</label>
+            <select id="category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="Account Access">Account Access</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+              <option value="Network">Network</option>
+              <option value="Security">Security</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="impact">Business Impact</label>
+            <select id="impact" name="impact" required>
+              <option value="">Select impact</option>
+              <option value="1">One user affected</option>
+              <option value="2">Multiple users affected</option>
+              <option value="3">Department unable to work</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="urgency">Urgency</label>
+            <select id="urgency" name="urgency" required>
+              <option value="">Select urgency</option>
+              <option value="1">Normal</option>
+              <option value="2">Time-sensitive</option>
+              <option value="3">Immediate attention required</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="description">Issue Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="5"
+              placeholder="Describe the issue, error messages, and troubleshooting already attempted."
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit">Create Ticket</button>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="ticket-header">
+        <div class="section-heading">
+          <p class="eyebrow">SERVICE DESK</p>
+          <h2>Ticket Queue</h2>
+        </div>
+
+        <div class="filter-group">
+          <label for="status-filter">Filter by status</label>
+          <select id="status-filter">
+            <option value="All">All tickets</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Ticket</th>
+              <th>Requester</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="ticket-list"></tbody>
+        </table>
+
+        <p id="empty-state">
+          No tickets have been submitted. Create the first support request above.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed and developed by Sara Salome as an IT systems-analysis project.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
