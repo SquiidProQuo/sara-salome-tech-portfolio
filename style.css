@@ -1,0 +1,267 @@
+/* ---------- Base settings ---------- */
+
+:root {
+  --background: #08111f;
+  --surface: #111e30;
+  --surface-light: #17283e;
+  --text: #f2f6fa;
+  --muted-text: #a8b7c9;
+  --accent: #55d6c9;
+  --border: #293d55;
+  --maximum-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 15px 0;
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+p {
+  color: var(--muted-text);
+}
+
+/* ---------- Navigation ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(8, 17, 31, 0.95);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  max-width: var(--maximum-width);
+  margin: auto;
+  padding: 20px;
+}
+
+nav a {
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Page layout ---------- */
+
+main {
+  width: min(90%, var(--maximum-width));
+  margin: auto;
+}
+
+section {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Home section ---------- */
+
+#home {
+  display: flex;
+  min-height: 700px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#home > p:first-child {
+  color: var(--accent);
+  font-family: Consolas, Monaco, monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#home h2 {
+  margin-top: 0;
+  color: var(--muted-text);
+}
+
+#home p {
+  max-width: 700px;
+  font-size: 1.15rem;
+}
+
+#home > a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 22px;
+  background-color: var(--accent);
+  color: #041817;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#home > a:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- About section ---------- */
+
+#about p {
+  max-width: 800px;
+}
+
+/* ---------- Project cards ---------- */
+
+#projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+#projects > h2 {
+  grid-column: 1 / -1;
+}
+
+article {
+  padding: 25px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+article p {
+  margin-bottom: 0;
+}
+
+/* ---------- Certifications ---------- */
+
+#certifications ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+#certifications li {
+  padding: 18px;
+  background-color: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+
+/* ---------- Contact ---------- */
+
+#contact ul {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+#contact a {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- Mobile layout ---------- */
+
+@media (max-width: 700px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  #home {
+    min-height: 600px;
+  }
+
+  #projects {
+    grid-template-columns: 1fr;
+  }
+
+  #certifications ul {
+    grid-template-columns: 1fr;
+  }
+
+  #contact ul {
+    flex-direction: column;
+  }
+
+  #contact a {
+    width: 100%;
+    text-align: center;
+  }
+}
